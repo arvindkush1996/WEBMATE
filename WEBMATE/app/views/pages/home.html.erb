@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="col-xs-3">
+      
+        <div class="panel panel-default">
+          
+          <div class="panel-footer">
+            <div class="row">
+                <div class="col-sm-2"><img src="/ask.jpg" height="50px" width="50px" class="rounded-img home-avatar"></div>
+                <div class="col-sm-10"><h4 style="text-align: center;"><%= current_user.username %></h4></div>
+                <div class="col-sm-12" style="margin-top: 10px;">
+                  <div class="col-sm-6" style="font-size: 80%; opacity: 0.7;">POSTS<br>
+                    <h6 style="color: #0084B4; font-size: 200%;"><%= current_user.posts.count %></h6>
+                  </div>
+                  <div class="col-sm-6" style="font-size: 80%; opacity: 0.7;">FOLLOWERS<br>
+                    <h6 style="color: #0084B4; font-size: 200%;"><%= current_user.followers.count %></h6>
+                  </div>
+                </div>
+            </div>
+
+          </div>
+        </div>
+        
+        
+    </div>
+    <div class="col-xs-6">
+        <%= render '/components/post_form' %><br><br>
+        
+        <% for @p in @posts %>
+        <div class="panel panel-default post-panel">
+          <div class="panel-body row">
+            
+            <div class="col-sm-1">
+              <img src="/avatar.png" class="rounded-img" height="50px" width="50px"></img>
+            </div>
+            <div class="col-sm-11">
+              <p class="post-title"><span class="post-owner"><a href="/user/<%= User.find(@p.user_id).username %>"><%= User.find(@p.user_id).username %></a></span> <span class="post-creation">- <%= @p.created_at.to_formatted_s(:short) %></span></p>
+              <p class="post-content"><%= @p.content %></p>
+            </div>
+            
+            <div class="col-sm-12">
+              <p class="post-links">
+                <span class="glyphicon glyphicon-comment g-links" aria-hidden="true"></span>
+                
+                <span class="glyphicon glyphicon-heart g-links" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-option-horizontal g-links" aria-hidden="true"></span>
+                
+              </p>
+            </div>
+            
+          </div>
+        </div>
+        <% end %>
+        
+        
+    </div>
+    <div class="col-xs-3">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <p style="opacity: 0.5; font-size: 90%;">This website is developed by ARVIND SHARMA (15CSU045- NORTHCAP UNIVERSITY)© 2017 WEBMATE</p>
+          </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<% if !user_signed_in? # if the user is not signed in, render this %>
+    <style>
+        body {
+            background: linear-gradient( /* somewhat transparent film on top of the BG to make it look darker. */
+                rgba(0,0,0, 0.7),
+                rgba(0,0,0, 0.7)
+                ), url("/background.jpg") no-repeat center center fixed
+            
+            ; /* only display once, center horizontal and vertical, dont let scroll change position. */
+            -webkit-background-size: cover;
+            -moz-background-size: cover; /* cover the whole html element. */
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        h1 {
+            color: white;
+            font-weight: bold;
+        }
+        .container-index {
+            margin-right: 1%;
+            margin-left: 22%;
+        }
+        .text {
+           text-align: justify;
+		   color: white;
+            font-weight: 300;
+            font-size: 150%;
+        }
+        .footer-links {
+            text-align: justify;
+            color: white;
+            margin-top: 70%;
+            font-size: 110%;
+        }
+        .log-in {
+            float: right;
+            width: 300px;
+            height: 150px;
+            margin-top: 7.5%;
+        }
+        .sign-up {
+            float: right;
+            width: 300px;
+            height: 250px;
+        }
+        .log-in-form {
+            margin: 5px;
+        }
+    </style>
+    
+    <div class="container-index row">
+        <div class="col-sm-6">
+            <h1>Welcome to WEBMATE</h1>
+            <p class="text">
+                Connect with friends and the world around you.
+            </p>
+        </div>
+        
+		
+		
+        
+        <div class="col-sm-12">
+            <p class="footer-links">This website is developed by ARVIND SHARMA (15CSU045- NORTHCAP UNIVERSITY) © 2017 WEBMATE</p>
+        </div>
+        
+    </div>
+
+<% else # if the user IS signed in, render the following %>
+
+    <script>document.location = "/home"</script>
+
+<% end %>
